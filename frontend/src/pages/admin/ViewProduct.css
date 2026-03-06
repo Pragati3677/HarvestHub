@@ -1,0 +1,38 @@
+/* src/pages/admin/ViewProduct.css */
+.view-product {
+    padding: 20px;
+  }
+  
+  .view-product h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .view-product ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .view-product li {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .view-product h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .view-product p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  .view-product li:hover {
+    background-color: #e9ecef;
+  }
+  

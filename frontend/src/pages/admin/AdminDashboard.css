@@ -1,0 +1,57 @@
+.admin-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.admin-container h1 {
+  color: #388e3c;
+  margin-bottom: 10px;
+}
+
+.admin-container p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.admin-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-actions button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: #4caf50;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.3s;
+}
+
+.admin-actions button:hover {
+  background-color: #388e3c;
+}
+
+.admin-actions .logout {
+  background-color: #f44336;
+}
+
+.admin-actions .logout:hover {
+  background-color: #d32f2f;
+}
+
+.icon {
+  font-size: 18px;
+}

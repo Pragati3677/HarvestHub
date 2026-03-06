@@ -1,0 +1,82 @@
+/* Home Page Main Container */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Full height of screen */
+  background: linear-gradient(to right,  #f0fff5, #ccf5d5); /* Light gradient */
+  text-align: center;
+  padding: 30px;
+}
+
+/* Dragon Fruit Image with Floating Effect */
+.home-image {
+  width: 320px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+  margin-bottom: 25px;
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+/* Floating Keyframes */
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Heading */
+.home-heading {
+  font-size: 40px;
+  font-weight: bold;
+  color: #2e7d32; /* Fresh Green color */
+  margin-bottom: 20px;
+}
+
+/* Subheading */
+.home-subheading {
+  font-size: 22px;
+  color: #555;
+  max-width: 700px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Login Button */
+.home-btn {
+  background-color: #388e3c;
+  color: #ffffff;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.home-btn:hover {
+  background-color: #2e7d32;
+  transform: scale(1.05);
+}
+
+/* FadeIn Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
