@@ -1,61 +1,65 @@
 .add-product-container {
-    width: 60%;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-  
-  .add-product-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .add-product-container form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .add-product-container form div {
-    margin-bottom: 15px;
-  }
-  
-  .add-product-container form label {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .add-product-container form input,
-  .add-product-container form textarea {
-    padding: 10px;
-    font-size: 14px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .add-product-container form input[type="number"] {
-    -moz-appearance: textfield;
-  }
-  
-  .add-product-container form button {
-    padding: 12px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .add-product-container form button:hover {
-    background-color: #45a049;
-  }
-  
-  .add-product-container form textarea {
-    resize: vertical;
-    min-height: 100px;
-  }
-  
+  padding: 30px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.add-product-container h2 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+.add-product-container div {
+  margin-bottom: 16px;
+}
+
+.add-product-container label {
+  display: block;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.add-product-container input,
+.add-product-container textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border 0.2s;
+}
+
+.add-product-container input:focus,
+.add-product-container textarea:focus {
+  border-color: #2e7d32;
+  outline: none;
+}
+
+.add-product-container textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.add-product-container button {
+  background-color: #2e7d32;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.add-product-container button:hover {
+  background-color: #1b5e20;
+}
+
+.add-product-container button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}

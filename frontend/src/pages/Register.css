@@ -1,52 +1,70 @@
-/* Register.css */
+.register-container {
+  max-width: 420px;
+  margin: 60px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
 
-.page-container {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to right, #f0fff5, #ccf5d5);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .form-box {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-  }
-  
-  .form-box h2 {
-    color: #2e8b57;
-    margin-bottom: 20px;
-  }
-  
-  .form-box input {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-  }
-  
-  .form-box button {
-    width: 100%;
-    padding: 12px;
-    background-color: #2e8b57;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .form-box button:hover {
-    background-color: #247e4a;
-  }
-  
+.register-container h1 {
+  color: #2e7d32;
+  margin-bottom: 24px;
+  font-size: 28px;
+}
+
+.register-container input {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border 0.2s;
+}
+
+.register-container input:focus {
+  border-color: #2e7d32;
+  outline: none;
+}
+
+.register-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 16px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.register-container button:hover {
+  background-color: #1b5e20;
+}
+
+.register-container button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.register-container p {
+  margin-top: 16px;
+  color: #555;
+  font-size: 14px;
+}
+
+.register-container a {
+  color: #2e7d32;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.register-container a:hover {
+  text-decoration: underline;
+}

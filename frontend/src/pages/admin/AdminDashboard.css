@@ -1,57 +1,111 @@
-.admin-container {
-  max-width: 600px;
-  margin: 60px auto;
-  padding: 30px;
-  background-color: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.admin-dashboard-page {
+  min-height: calc(100vh - 60px);
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.admin-dashboard-container {
+  background: white;
+  border-radius: 24px;
+  padding: 48px 40px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
   text-align: center;
-  font-family: 'Segoe UI', sans-serif;
 }
 
-.admin-container h1 {
-  color: #388e3c;
-  margin-bottom: 10px;
+.dashboard-header {
+  margin-bottom: 36px;
 }
 
-.admin-container p {
-  color: #666;
-  margin-bottom: 30px;
+.dashboard-icon {
+  font-size: 52px;
+  display: block;
+  margin-bottom: 12px;
 }
 
-.admin-actions {
+.admin-dashboard-container h2 {
+  font-size: 28px;
+  color: #1b3a1b;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.admin-dashboard-container p {
+  color: #6a8f6a;
+  font-size: 15px;
+}
+
+.dashboard-buttons {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
 }
 
-.admin-actions button {
-  padding: 12px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  background-color: #4caf50;
-  cursor: pointer;
+.dash-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: background-color 0.3s;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+  letter-spacing: 0.3px;
 }
 
-.admin-actions button:hover {
-  background-color: #388e3c;
+.dash-btn span {
+  font-size: 20px;
 }
 
-.admin-actions .logout {
-  background-color: #f44336;
+.dash-btn--add {
+  background: linear-gradient(135deg, #2e7d32, #43a047);
+  color: white;
+  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.3);
 }
 
-.admin-actions .logout:hover {
-  background-color: #d32f2f;
+.dash-btn--add:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(46, 125, 50, 0.4);
 }
 
-.icon {
-  font-size: 18px;
+.dash-btn--view {
+  background: linear-gradient(135deg, #1565c0, #1976d2);
+  color: white;
+  box-shadow: 0 4px 16px rgba(21, 101, 192, 0.3);
+}
+
+.dash-btn--view:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(21, 101, 192, 0.4);
+}
+
+.dash-btn--edit {
+  background: linear-gradient(135deg, #e65100, #f57c00);
+  color: white;
+  box-shadow: 0 4px 16px rgba(230, 81, 0, 0.3);
+}
+
+.dash-btn--edit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(230, 81, 0, 0.4);
+}
+
+.dash-btn--logout {
+  background: linear-gradient(135deg, #c62828, #e53935);
+  color: white;
+  box-shadow: 0 4px 16px rgba(198, 40, 40, 0.3);
+}
+
+.dash-btn--logout:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(198, 40, 40, 0.4);
 }
