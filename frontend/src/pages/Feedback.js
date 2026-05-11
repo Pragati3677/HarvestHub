@@ -9,14 +9,46 @@ function Feedback() {
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (rating === 0) {
-      alert("Please select a star rating!");
-      return;
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (rating === 0) {
+    alert("Please select a star rating!");
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:5000/api/feedback", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        rating,
+        message,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      setSubmitted(true);
+
+      // Clear form
+      setName("");
+      setEmail("");
+      setRating(0);
+      setMessage("");
+    } else {
+      alert(data.message || "Failed to submit feedback");
     }
-    setSubmitted(true);
-  };
+  } catch (error) {
+    console.error("Feedback Error:", error);
+    alert("Server error");
+  }
+};
 
   if (submitted) {
     return (
@@ -40,7 +72,7 @@ function Feedback() {
         <div className="feedback-header">
           <span className="feedback-emoji">💬</span>
           <h1>Share Your Feedback</h1>
-          <p>We'd love to hear about your experience with Fruit Farm!</p>
+          <p>We'd love to hear about your experience with 🌾HarvestHub!</p>
         </div>
 
         <form onSubmit={handleSubmit} className="feedback-form">

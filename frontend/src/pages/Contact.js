@@ -8,10 +8,42 @@ function Contact() {
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSent(true);
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("http://localhost:5000/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        subject,
+        message,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      setSent(true);
+
+      // Clear form
+      setName("");
+      setEmail("");
+      setSubject("");
+      setMessage("");
+    } else {
+      alert(data.message || "Failed to send message");
+    }
+
+  } catch (error) {
+    console.error("Contact Error:", error);
+    alert("Server Error");
+  }
+};
 
   if (sent) {
     return (

@@ -10,8 +10,8 @@ function EditProduct() {
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [fetchingFruits, setFetchingFruits] = useState(true);
+  const [successMsg, setSuccessMsg] = useState("");
 
-  // Load all fruits on mount
   useEffect(() => {
     fetch("http://localhost:5000/api/fruits/all")
       .then((res) => res.json())
@@ -25,52 +25,46 @@ function EditProduct() {
       });
   }, []);
 
-  // When a fruit is selected from dropdown, fill the form
   const handleSelect = (e) => {
     const id = e.target.value;
     setSelectedId(id);
+    setSuccessMsg("");
     if (!id) {
       setName(""); setPrice(""); setDescription(""); setImageUrl("");
       return;
     }
     const fruit = fruits.find((f) => f._id === id);
     if (fruit) {
-      setName(fruit.name);
-      setPrice(fruit.price);
+      setName(fruit.name || "");
+      setPrice(fruit.price || "");
       setDescription(fruit.description || "");
       setImageUrl(fruit.imageUrl || "");
     }
   };
 
-  // Submit update to backend
   const handleUpdate = async (e) => {
     e.preventDefault();
-    if (!selectedId) {
-      alert("Please select a fruit to edit!");
-      return;
-    }
+    if (!selectedId) return alert("Please select a fruit!");
     setLoading(true);
+    setSuccessMsg("");
     try {
       const res = await fetch(`http://localhost:5000/api/fruits/${selectedId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          price: Number(price),
-          imageUrl,
-          description,
-        }),
+        body: JSON.stringify({ name, price: Number(price), imageUrl, description }),
       });
       const data = await res.json();
       if (res.ok) {
-        alert("✅ " + data.message);
-        // Refresh the fruits list
-        const updated = fruits.map((f) =>
-          f._id === selectedId ? { ...f, name, price: Number(price), imageUrl, description } : f
+        setSuccessMsg("✅ Fruit updated successfully!");
+        setFruits((prev) =>
+          prev.map((f) =>
+            f._id === selectedId
+              ? { ...f, name, price: Number(price), imageUrl, description }
+              : f
+          )
         );
-        setFruits(updated);
       } else {
-        alert("❌ " + data.error);
+        alert("❌ " + (data.error || "Update failed"));
       }
     } catch (err) {
       alert("❌ Update failed. Is backend running?");
@@ -82,7 +76,7 @@ function EditProduct() {
     return (
       <div className="edit-page">
         <div className="edit-loading">
-          <div className="edit-spinner" />
+          <div className="edit-spinner"></div>
           <p>Loading fruits...</p>
         </div>
       </div>
@@ -92,14 +86,12 @@ function EditProduct() {
   return (
     <div className="edit-page">
       <div className="edit-container">
-
         <div className="edit-header">
           <span className="edit-icon">✏️</span>
           <h2>Edit Fruit</h2>
           <p>Select a fruit and update its details</p>
         </div>
 
-        {/* Fruit Selector */}
         <div className="select-group">
           <label>Select Fruit to Edit</label>
           <select value={selectedId} onChange={handleSelect}>
@@ -112,39 +104,29 @@ function EditProduct() {
           </select>
         </div>
 
-        {/* Edit Form — shows only after selection */}
-        {selectedId && (
+        {successMsg && <div className="success-banner">{successMsg}</div>}
+
+        {selectedId ? (
           <form onSubmit={handleUpdate} className="edit-form">
             <div className="form-group">
               <label>Fruit Name</label>
-              <input
-                type="text"
-                value={name}
+              <input type="text" value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="e.g. Mango"
-                required
-              />
+                placeholder="e.g. Mango" required />
             </div>
 
             <div className="form-group">
               <label>Price (₹ per kg)</label>
-              <input
-                type="number"
-                value={price}
+              <input type="number" value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                placeholder="e.g. 150"
-                required
-              />
+                placeholder="e.g. 150" required />
             </div>
 
             <div className="form-group">
               <label>Image URL</label>
-              <input
-                type="text"
-                value={imageUrl}
+              <input type="text" value={imageUrl}
                 onChange={(e) => setImageUrl(e.target.value)}
-                placeholder="https://... (paste image link)"
-              />
+                placeholder="https://... (paste image link)" />
               {imageUrl && imageUrl.startsWith("http") && (
                 <img className="img-preview" src={imageUrl} alt="preview"
                   onError={(e) => { e.target.style.display = "none"; }} />
@@ -153,33 +135,22 @@ function EditProduct() {
 
             <div className="form-group">
               <label>Description</label>
-              <textarea
-                value={description}
+              <textarea value={description} rows={3}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="e.g. Fresh Alphonso mangoes from farm"
-                rows={3}
-                required
-              />
+                placeholder="e.g. Fresh Alphonso mangoes from farm" required />
             </div>
 
             <button type="submit" className="update-btn" disabled={loading}>
               {loading ? "Updating..." : "✅ Update Fruit"}
             </button>
           </form>
-        )}
-
-        {!selectedId && fruits.length > 0 && (
+        ) : (
           <div className="select-hint">
-            👆 Select a fruit from the dropdown above to edit it
+            {fruits.length === 0
+              ? "😢 No fruits found. Add fruits first!"
+              : "👆 Select a fruit from the dropdown above to edit it"}
           </div>
         )}
-
-        {fruits.length === 0 && (
-          <div className="select-hint">
-            😢 No fruits found. Please add fruits first from Add Fruit page.
-          </div>
-        )}
-
       </div>
     </div>
   );

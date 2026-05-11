@@ -1,22 +1,50 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = () => {
+function Navbar() {
+  const navigate = useNavigate();
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const userName = localStorage.getItem("userName");
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("userName");
+    navigate("/login");
+  };
+
   return (
     <nav className="navbar">
-      <h2 className="logo">🍎 Fruit Farm</h2>
+      <Link to="/" className="navbar-logo">
+        🍎 HarvestHub
+      </Link>
       <ul className="nav-links">
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/login">User Login</Link></li>
-        <li><Link to="/register">Register</Link></li>
-        <li><Link to="/admin/login">Admin Login</Link></li> {/* ✅ Added Admin Login */}
+        {!isLoggedIn ? (
+          <>
+            <li><Link to="/login">User Login</Link></li>
+            <li><Link to="/register">Register</Link></li>
+          </>
+        ) : (
+          <>
+            <li><Link to="/fruits">Shop</Link></li>
+            <li>
+              <span className="nav-username">👋 {userName}</span>
+            </li>
+            <li>
+              <button className="nav-logout-btn" onClick={handleLogout}>
+                Logout
+              </button>
+            </li>
+          </>
+        )}
+        <li><Link to="/admin/login">Admin Login</Link></li>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/contact">Contact</Link></li>
         <li><Link to="/feedback">Feedback</Link></li>
       </ul>
     </nav>
   );
-};
+}
 
 export default Navbar;

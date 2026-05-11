@@ -91,7 +91,7 @@ function Home() {
       {/* ── FEATURES ── */}
       <section className="features-section">
         <div className="section-header">
-          <h2>Why Choose Fruit Farm?</h2>
+          <h2>Why Choose HarvestHub?</h2>
           <p>We're not just a store — we're your farm family</p>
         </div>
         <div className="features-grid">
@@ -142,7 +142,7 @@ function Home() {
       <footer className="home-footer">
         <div className="footer-content">
           <div className="footer-brand">
-            <span className="footer-logo">🍎 Fruit Farm</span>
+            <span className="footer-logo">🌾HarvestHub</span>
             <p>Fresh fruits directly from our Maharashtra farm to your home.</p>
           </div>
           <div className="footer-links">
@@ -160,7 +160,7 @@ function Home() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>© 2026 Fruit Farm. Made with Pragati ❤️</p>
+          <p>© 2026 🌾HarvestHub. Made with Pragati ❤️</p>
         </div>
       </footer>
 

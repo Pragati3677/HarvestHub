@@ -10,9 +10,8 @@ import Feedback from "./pages/Feedback";
 import FruitList from "./pages/FruitList";
 import Checkout from "./pages/Checkout";
 import PaymentSuccess from "./pages/PaymentSuccess";
-
+import AdminApp from "./pages/admin/AdminApp";
 import "./App.css";
-import AdminApp from "./pages/admin/AdminApp"; // ✅ Correct path
 
 function App() {
   return (

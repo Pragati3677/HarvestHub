@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./FruitList.css";
 
-// Default fruit images map
 const DEFAULT_IMAGES = {
   mango: "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg",
   apple: "https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg",
@@ -24,70 +23,55 @@ function FruitList() {
   const [cart, setCart] = useState({});
   const [loading, setLoading] = useState(true);
   const [cartOpen, setCartOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState("default");
+  const [maxPrice, setMaxPrice] = useState(1000);
   const navigate = useNavigate();
+
+  // ── 🔐 PROTECT ROUTE ──
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (!isLoggedIn) {
+      alert("🔐 Please login first to view fruits!");
+      navigate("/login");
+    }
+  }, [navigate]);
 
   // Fetch fruits from MongoDB
   useEffect(() => {
     fetch("http://localhost:5000/api/fruits/all")
       .then((res) => res.json())
-      .then((data) => {
-        setFruits(data);
-        setLoading(false);
-      })
-      .catch(() => {
-        alert("❌ Cannot connect to server.");
-        setLoading(false);
-      });
+      .then((data) => { setFruits(data); setLoading(false); })
+      .catch(() => { alert("❌ Cannot connect to server."); setLoading(false); });
   }, []);
 
-  // Smart image resolver
   const getImageSrc = (fruit) => {
-    // 1. Use admin-provided URL if valid
-    if (fruit.imageUrl && fruit.imageUrl.startsWith("http")) {
-      return fruit.imageUrl;
-    }
-    // 2. Try to match fruit name to default images
+    if (fruit.imageUrl && fruit.imageUrl.startsWith("http")) return fruit.imageUrl;
     const nameLower = fruit.name.toLowerCase();
     for (const key of Object.keys(DEFAULT_IMAGES)) {
-      if (nameLower.includes(key)) {
-        return DEFAULT_IMAGES[key];
-      }
+      if (nameLower.includes(key)) return DEFAULT_IMAGES[key];
     }
-    // 3. Final fallback — green placeholder with fruit name
     return `https://placehold.co/300x200/e8f5e9/2e7d32?text=${encodeURIComponent(fruit.name)}`;
   };
 
-  // Add to cart
   const addToCart = (fruit) => {
     setCart((prev) => ({
       ...prev,
-      [fruit._id]: {
-        ...fruit,
-        qty: (prev[fruit._id]?.qty || 0) + 1,
-      },
+      [fruit._id]: { ...fruit, qty: (prev[fruit._id]?.qty || 0) + 1 },
     }));
   };
 
-  // Remove one from cart
   const removeFromCart = (fruitId) => {
     setCart((prev) => {
       const updated = { ...prev };
-      if (updated[fruitId].qty <= 1) {
-        delete updated[fruitId];
-      } else {
-        updated[fruitId] = { ...updated[fruitId], qty: updated[fruitId].qty - 1 };
-      }
+      if (updated[fruitId].qty <= 1) delete updated[fruitId];
+      else updated[fruitId] = { ...updated[fruitId], qty: updated[fruitId].qty - 1 };
       return updated;
     });
   };
 
-  // Delete item completely from cart
   const deleteFromCart = (fruitId) => {
-    setCart((prev) => {
-      const updated = { ...prev };
-      delete updated[fruitId];
-      return updated;
-    });
+    setCart((prev) => { const u = { ...prev }; delete u[fruitId]; return u; });
   };
 
   const cartItems = Object.values(cart);
@@ -95,12 +79,21 @@ function FruitList() {
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
 
   const handleCheckout = () => {
-    if (cartItems.length === 0) {
-      alert("🛒 Your cart is empty! Please add some fruits first.");
-      return;
-    }
+    if (cartItems.length === 0) { alert("🛒 Cart is empty!"); return; }
     navigate("/checkout", { state: { cartItems, totalPrice } });
   };
+
+  // Filter & Sort
+  const filteredFruits = fruits
+    .filter((f) => f.name.toLowerCase().includes(search.toLowerCase()))
+    .filter((f) => f.price <= maxPrice)
+    .sort((a, b) => {
+      if (sortBy === "low-high") return a.price - b.price;
+      if (sortBy === "high-low") return b.price - a.price;
+      if (sortBy === "name-az") return a.name.localeCompare(b.name);
+      if (sortBy === "name-za") return b.name.localeCompare(a.name);
+      return 0;
+    });
 
   if (loading) {
     return (
@@ -114,47 +107,84 @@ function FruitList() {
   return (
     <div className="fruit-page">
 
-      {/* ── TOP BAR ── */}
+      {/* TOP BAR */}
       <div className="fruit-topbar">
         <div className="fruit-topbar__left">
           <h1>🍎 Fresh Fruits</h1>
-          <p>{fruits.length} varieties available</p>
+          <p>{filteredFruits.length} varieties available</p>
         </div>
-        <button className="cart-btn" onClick={() => setCartOpen(!cartOpen)}>
-          🛒 Cart
-          {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
+        <div className="topbar-right">
+          <span className="welcome-user">
+            👋 {localStorage.getItem("userName") || "Customer"}
+          </span>
+          <button className="cart-btn" onClick={() => setCartOpen(!cartOpen)}>
+            🛒 Cart
+            {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
+          </button>
+        </div>
+      </div>
+
+      {/* SEARCH & FILTER BAR */}
+      <div className="filter-bar">
+        <div className="search-box">
+          <span className="search-icon">🔍</span>
+          <input type="text" placeholder="Search fruits..."
+            value={search} onChange={(e) => setSearch(e.target.value)} />
+          {search && (
+            <button className="clear-search" onClick={() => setSearch("")}>✕</button>
+          )}
+        </div>
+
+        <div className="filter-group">
+          <label>Sort By</label>
+          <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+            <option value="default">Default</option>
+            <option value="low-high">Price: Low to High</option>
+            <option value="high-low">Price: High to Low</option>
+            <option value="name-az">Name: A to Z</option>
+            <option value="name-za">Name: Z to A</option>
+          </select>
+        </div>
+
+        <div className="filter-group">
+          <label>Max Price: ₹{maxPrice}</label>
+          <input type="range" min="50" max="1000" step="50"
+            value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value))}
+            className="price-slider" />
+        </div>
+
+        <button className="reset-btn" onClick={() => {
+          setSearch(""); setSortBy("default"); setMaxPrice(1000);
+        }}>
+          🔄 Reset
         </button>
       </div>
 
       <div className="fruit-main">
 
-        {/* ── FRUIT GRID ── */}
+        {/* FRUIT GRID */}
         <div className={`fruit-grid ${cartOpen ? "fruit-grid--shrink" : ""}`}>
-          {fruits.length === 0 ? (
+          {filteredFruits.length === 0 ? (
             <div className="no-fruits">
-              <p>😢 No fruits available right now.</p>
-              <p>Ask admin to add some fruits!</p>
+              <p>😢</p>
+              <p>No fruits found!</p>
+              <p>{search ? `No results for "${search}"` : "Try adjusting your filters"}</p>
+              <button onClick={() => { setSearch(""); setSortBy("default"); setMaxPrice(1000); }}>
+                Clear Filters
+              </button>
             </div>
           ) : (
-            fruits.map((fruit) => {
+            filteredFruits.map((fruit) => {
               const inCart = cart[fruit._id];
               return (
                 <div className="fruit-card" key={fruit._id}>
                   <div className="fruit-card__img-wrap">
-                    <img
-                      src={getImageSrc(fruit)}
-                      alt={fruit.name}
+                    <img src={getImageSrc(fruit)} alt={fruit.name}
                       onError={(e) => {
-                        // If image fails, show placeholder
                         e.target.onerror = null;
                         e.target.src = `https://placehold.co/300x200/e8f5e9/2e7d32?text=${encodeURIComponent(fruit.name)}`;
-                      }}
-                    />
-                    {inCart && (
-                      <div className="fruit-card__badge">
-                        {inCart.qty} in cart
-                      </div>
-                    )}
+                      }} />
+                    {inCart && <div className="fruit-card__badge">{inCart.qty} in cart</div>}
                   </div>
                   <div className="fruit-card__body">
                     <h3>{fruit.name}</h3>
@@ -162,9 +192,7 @@ function FruitList() {
                     <div className="fruit-card__footer">
                       <span className="fruit-price">₹{fruit.price}<small>/kg</small></span>
                       {!inCart ? (
-                        <button className="add-btn" onClick={() => addToCart(fruit)}>
-                          + Add
-                        </button>
+                        <button className="add-btn" onClick={() => addToCart(fruit)}>+ Add</button>
                       ) : (
                         <div className="qty-controls">
                           <button onClick={() => removeFromCart(fruit._id)}>−</button>
@@ -180,14 +208,13 @@ function FruitList() {
           )}
         </div>
 
-        {/* ── CART SIDEBAR ── */}
+        {/* CART SIDEBAR */}
         {cartOpen && (
           <div className="cart-sidebar">
             <div className="cart-sidebar__header">
               <h2>🛒 Your Cart</h2>
               <button className="close-cart" onClick={() => setCartOpen(false)}>✕</button>
             </div>
-
             {cartItems.length === 0 ? (
               <div className="cart-empty">
                 <p>🛒</p>
@@ -215,19 +242,15 @@ function FruitList() {
                     </div>
                   ))}
                 </div>
-
                 <div className="cart-summary">
                   <div className="cart-summary__row">
-                    <span>Items ({totalItems})</span>
-                    <span>₹{totalPrice}</span>
+                    <span>Items ({totalItems})</span><span>₹{totalPrice}</span>
                   </div>
                   <div className="cart-summary__row">
-                    <span>Delivery</span>
-                    <span className="free">FREE 🚚</span>
+                    <span>Delivery</span><span className="free">FREE 🚚</span>
                   </div>
                   <div className="cart-summary__row cart-summary__total">
-                    <strong>Total</strong>
-                    <strong>₹{totalPrice}</strong>
+                    <strong>Total</strong><strong>₹{totalPrice}</strong>
                   </div>
                   <button className="checkout-btn" onClick={handleCheckout}>
                     Proceed to Checkout →
@@ -237,7 +260,6 @@ function FruitList() {
             )}
           </div>
         )}
-
       </div>
     </div>
   );
