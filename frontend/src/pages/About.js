@@ -31,7 +31,7 @@ function About() {
       <div className="about-story">
         <h2>🌾 Our Story</h2>
         <p>
-          HarvestHub started as a small family farm in Sangli, Maharashtra. For
+          HarvestHub started as a small family farm in Malashiras, Maharashtra. For
           generations, our family has been growing fruits using traditional
           organic methods passed down through the years.
         </p>
