@@ -10,6 +10,7 @@ import Feedback from "./pages/Feedback";
 import FruitList from "./pages/FruitList";
 import Checkout from "./pages/Checkout";
 import PaymentSuccess from "./pages/PaymentSuccess";
+import OrderHistory from "./pages/OrderHistory";
 import AdminApp from "./pages/admin/AdminApp";
 import "./App.css";
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/fruits" element={<FruitList />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="/my-orders" element={<OrderHistory />} />
 
           {/* Admin routes */}
           <Route path="/admin/*" element={<AdminApp />} />

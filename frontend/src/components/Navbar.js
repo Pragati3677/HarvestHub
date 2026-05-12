@@ -10,6 +10,8 @@ function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("userName");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userPhone");
     navigate("/login");
   };
 
@@ -27,10 +29,9 @@ function Navbar() {
           </>
         ) : (
           <>
-            <li><Link to="/fruits">Shop</Link></li>
-            <li>
-              <span className="nav-username">👋 {userName}</span>
-            </li>
+            <li><Link to="/fruits">🍎 Shop</Link></li>
+            <li><Link to="/my-orders">📜 My Orders</Link></li>
+            <li><span className="nav-username">👋 {userName}</span></li>
             <li>
               <button className="nav-logout-btn" onClick={handleLogout}>
                 Logout
@@ -38,7 +39,7 @@ function Navbar() {
             </li>
           </>
         )}
-        <li><Link to="/admin/login">Admin Login</Link></li>
+        <li><Link to="/admin/login">Admin</Link></li>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/contact">Contact</Link></li>
         <li><Link to="/feedback">Feedback</Link></li>
