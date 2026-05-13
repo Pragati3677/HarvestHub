@@ -7,7 +7,19 @@
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-HarvestHub-2e7d32?style=for-the-badge)](https://github.com/Pragati3677/HarvestHub)
 
 </div>
+---
+🚩 Problem Statement
 
+To design and implement a MERN-based Fruit Ordering System that connects farmers directly with customers and automates:
+
+- 👤 User registration and login
+- 🍎 Fruit browsing and management
+- 🛒 Cart and order processing
+- 💳 Online payment integration
+- 📦 Order tracking and management
+- 💬 Feedback and contact handling
+
+This system reduces manual selling efforts, improves accessibility for farmers, and provides customers with a smooth online fruit purchasing experience.
 ---
 
 📌 Introduction
@@ -28,20 +40,18 @@ HarvestHub simplifies fruit purchasing, enhances farmer visibility, and delivers
 
 ---
 
-🚩 Problem Statement
+## 🛠️ Tech Stack
 
-To design and implement a MERN-based Fruit Ordering System that connects farmers directly with customers and automates:
-
-- 👤 User registration and login
-- 🍎 Fruit browsing and management
-- 🛒 Cart and order processing
-- 💳 Online payment integration
-- 📦 Order tracking and management
-- 💬 Feedback and contact handling
-
-This system reduces manual selling efforts, improves accessibility for farmers, and provides customers with a smooth online fruit purchasing experience.
+| Layer | Technology | Description |
+|---|---|---|
+| 🎨 Frontend | React.js, CSS3 | User interface and styling |
+| ⚙️ Backend | Node.js, Express.js | Server-side logic and APIs |
+| 🗄️ Database | MongoDB Atlas | Data storage and management |
+| 💳 Payment | Razorpay | Online payment integration |
+| 🔧 Tools | Git, GitHub, VS Code | Development and version control |
 
 ---
+
 <div align="center">
 
 ### 🏠 Home Page
@@ -68,7 +78,6 @@ This system reduces manual selling efforts, improves accessibility for farmers, 
 
 ### 🎉 Order Placed Successfully
 <img width="1919" height="964" alt="image" src="https://github.com/user-attachments/assets/e344f428-f72c-4d68-85c0-53f93eb0b824" />
-
 
 </div>
 
