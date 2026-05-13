@@ -6,6 +6,10 @@
 
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-HarvestHub-2e7d32?style=for-the-badge)](https://github.com/Pragati3677/HarvestHub)
 
+</div>
+
+---
+
 📌 Introduction
 
 **HarvestHub is a modern online Fruit Ordering System developed to create a direct connection between farmers and customers. Traditional fruit selling methods often involve middlemen, delayed communication, and limited customer reach.**
@@ -38,6 +42,7 @@ To design and implement a MERN-based Fruit Ordering System that connects farmers
 This system reduces manual selling efforts, improves accessibility for farmers, and provides customers with a smooth online fruit purchasing experience.
 
 ---
+<div align="center">
 
 ### 🏠 Home Page
 <img width="1600" height="807" alt="image" src="https://github.com/user-attachments/assets/51b5f838-0616-469c-b965-fcddef3a8d2b" />
