@@ -8,19 +8,31 @@ function AdminLogin() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
-    if (email === "admin@farmer.com" && password === "admin123") {
-      localStorage.setItem("isAdminLoggedIn", "true");
-      setTimeout(() => {
-        setLoading(false);
+
+    try {
+      // ✅ Verify admin credentials via backend (secure)
+      const res = await fetch("http://localhost:5000/api/users/admin-login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        localStorage.setItem("isAdminLoggedIn", "true");
         navigate("/admin/dashboard");
-      }, 800);
-    } else {
-      setLoading(false);
-      alert("❌ Invalid admin credentials!");
+      } else {
+        alert("❌ " + (data.error || "Invalid admin credentials!"));
+      }
+    } catch (err) {
+      alert("❌ Cannot connect to server. Is backend running?");
     }
+
+    setLoading(false);
   };
 
   return (
