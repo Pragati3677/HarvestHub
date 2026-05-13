@@ -7,7 +7,7 @@
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-HarvestHub-2e7d32?style=for-the-badge)](https://github.com/Pragati3677/HarvestHub)
 
 ### 🏠 Home Page
-![React](<img width="1916" height="967" alt="image" src="https://github.com/user-attachments/assets/03c958ed-479b-4ad7-b615-221088886ea1" />)
+![React](<img width="1911" height="968" alt="Screenshot 2026-05-13 072017" src="https://github.com/user-attachments/assets/92083814-75fe-4b51-9d4f-6e7c498bc64a" />)
 
 ### 🍎 Fruits Page 
 ![Node.js](<img width="1910" height="967" alt="image" src="https://github.com/user-attachments/assets/e17ef674-8460-4484-83a5-607a724a7453" />)
