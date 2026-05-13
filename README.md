@@ -6,6 +6,39 @@
 
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-HarvestHub-2e7d32?style=for-the-badge)](https://github.com/Pragati3677/HarvestHub)
 
+📌 Introduction
+
+**HarvestHub is a modern online Fruit Ordering System developed to create a direct connection between farmers and customers. Traditional fruit selling methods often involve middlemen, delayed communication, and limited customer reach.**
+
+This system provides an efficient digital platform for:
+
+- 🍎 Browsing fresh fruits online
+- 🛒 Adding products to cart and placing orders
+- 💳 Secure online payments using Razorpay
+- 📦 Managing customer orders
+- 💬 Collecting customer feedback and contact queries
+
+The project is developed using React.js for the frontend, Node.js and Express.js for backend services, MongoDB Atlas for database management, and Razorpay for payment integration.
+
+HarvestHub simplifies fruit purchasing, enhances farmer visibility, and delivers a user-friendly shopping experience.
+
+---
+
+🚩 Problem Statement
+
+To design and implement a MERN-based Fruit Ordering System that connects farmers directly with customers and automates:
+
+- 👤 User registration and login
+- 🍎 Fruit browsing and management
+- 🛒 Cart and order processing
+- 💳 Online payment integration
+- 📦 Order tracking and management
+- 💬 Feedback and contact handling
+
+This system reduces manual selling efforts, improves accessibility for farmers, and provides customers with a smooth online fruit purchasing experience.
+
+---
+
 ### 🏠 Home Page
 <img width="1600" height="807" alt="image" src="https://github.com/user-attachments/assets/51b5f838-0616-469c-b965-fcddef3a8d2b" />
 
@@ -31,8 +64,6 @@
 ### 🎉 Order Placed Successfully
 <img width="1919" height="964" alt="image" src="https://github.com/user-attachments/assets/e344f428-f72c-4d68-85c0-53f93eb0b824" />
 
-
-**HarvestHub is a full-stack MERN e-commerce platform that eliminates middlemen by connecting customers directly with a Maharashtra-based fruit farm — enabling fresh, organic fruit delivery right to their doorstep.**
 
 </div>
 
