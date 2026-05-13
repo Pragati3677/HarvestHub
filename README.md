@@ -93,16 +93,12 @@
 ### 🎨 Frontend
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=flat-square&logo=reactrouter&logoColor=white)
-![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=flat-square&logo=chartdotjs&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![Google Fonts](https://img.shields.io/badge/Google_Fonts-4285F4?style=flat-square&logo=google&logoColor=white)
 
 ### ⚙️ Backend
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
 ![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=flat-square)
-![dotenv](https://img.shields.io/badge/dotenv-ECD53F?style=flat-square&logo=dotenv&logoColor=black)
-![CORS](https://img.shields.io/badge/CORS-FF6C37?style=flat-square)
 
 ### 🗄️ Database
 ![MongoDB Atlas](https://img.shields.io/badge/MongoDB_Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white)
@@ -110,16 +106,11 @@
 ### 💳 Payment Gateway
 ![Razorpay](https://img.shields.io/badge/Razorpay-02042B?style=flat-square&logo=razorpay&logoColor=white)
 
-### 🔐 Auth & Security
-![LocalStorage](https://img.shields.io/badge/LocalStorage-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Crypto](https://img.shields.io/badge/Crypto-000000?style=flat-square&logo=node.js&logoColor=white)
-
 ### 🔧 Developer Tools
 ![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white)
-![npm](https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white)
 ---
 ## 🗂️ Project Structure
 
@@ -266,7 +257,7 @@ npm start
 
 <div align="center">
 
-💚 Made by Pragati Shendage  
+💚 Made by Pragati  
 🌾 Empowering Farmers Through Technology 🚜
 
 **🍎 Fresh • 🌿 Organic • 🚚 Direct from Farm**
