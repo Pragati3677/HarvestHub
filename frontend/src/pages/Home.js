@@ -159,9 +159,9 @@ function Home() {
             <span>📍 Malashiras-413103, Solapur, Maharashtra</span>
           </div>
         </div>
-        <div className="footer-bottom">
-          <p>© 2026 🌾HarvestHub. Made with Pragati ❤️</p>
-        </div>
+      <div className="footer-bottom">
+        <p>© 2026 🌾 HarvestHub | Designed & Developed by Pragati Shendage ❤️</p>
+      </div>
       </footer>
 
     </div>
