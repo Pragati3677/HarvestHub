@@ -27,7 +27,7 @@ function Checkout() {
   // Save order to MongoDB
   const saveOrder = async (pmtMethod, pmtId = "") => {
     try {
-      const res = await fetch("http://localhost:5000/api/orders/place-order", {
+      const res = await fetch("https://harvesthub-backend-xh5u.onrender.com/api/orders/place-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -60,7 +60,7 @@ function Checkout() {
   const handleRazorpay = async () => {
     try {
       // Step 1: Create order on backend
-      const res = await fetch("http://localhost:5000/api/payment/create-order", {
+      const res = await fetch("https://harvesthub-backend-xh5u.onrender.com/api/payment/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: totalPrice }),

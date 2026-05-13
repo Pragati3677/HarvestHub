@@ -13,7 +13,7 @@ function EditProduct() {
   const [successMsg, setSuccessMsg] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/fruits/all")
+    fetch("https://harvesthub-backend-xh5u.onrender.com/api/fruits/all")
       .then((res) => res.json())
       .then((data) => {
         setFruits(data);
@@ -48,7 +48,7 @@ function EditProduct() {
     setLoading(true);
     setSuccessMsg("");
     try {
-      const res = await fetch(`http://localhost:5000/api/fruits/${selectedId}`, {
+      const res = await fetch(`https://harvesthub-backend-xh5u.onrender.com/api/fruits/${selectedId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, price: Number(price), imageUrl, description }),

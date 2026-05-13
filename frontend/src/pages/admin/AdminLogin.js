@@ -14,7 +14,7 @@ function AdminLogin() {
 
     try {
       // ✅ Verify admin credentials via backend (secure)
-      const res = await fetch("http://localhost:5000/api/users/admin-login", {
+      const res = await fetch("https://harvesthub-backend-xh5u.onrender.com/api/users/admin-login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

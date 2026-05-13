@@ -7,7 +7,7 @@ const ViewProduct = () => {
 
   const fetchFruits = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/fruits/all");
+      const res = await fetch("https://harvesthub-backend-xh5u.onrender.com/api/fruits/all");
       const data = await res.json();
       setFruits(data);
     } catch (err) {
@@ -21,7 +21,7 @@ const ViewProduct = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this fruit?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/fruits/${id}`, { method: "DELETE" });
+      const res = await fetch(`https://harvesthub-backend-xh5u.onrender.com/api/fruits/${id}`, { method: "DELETE" });
       const data = await res.json();
       alert("✅ " + data.message);
       fetchFruits();

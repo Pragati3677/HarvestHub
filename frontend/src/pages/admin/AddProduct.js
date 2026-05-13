@@ -12,7 +12,7 @@ const AddProduct = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/api/fruits/add-fruit", {
+      const response = await fetch("https://harvesthub-backend-xh5u.onrender.com/api/fruits/add-fruit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, price: Number(price), imageUrl, description }),

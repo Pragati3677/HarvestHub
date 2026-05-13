@@ -23,8 +23,8 @@ function AdminDashboard() {
 
   useEffect(() => {
     Promise.all([
-      fetch("http://localhost:5000/api/orders/all").then((r) => r.json()),
-      fetch("http://localhost:5000/api/fruits/all").then((r) => r.json()),
+      fetch("https://harvesthub-backend-xh5u.onrender.com/api/orders/all").then((r) => r.json()),
+      fetch("https://harvesthub-backend-xh5u.onrender.com/api/fruits/all").then((r) => r.json()),
     ])
       .then(([ordersData, fruitsData]) => {
         setOrders(ordersData);

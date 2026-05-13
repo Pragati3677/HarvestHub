@@ -9,7 +9,7 @@ function AdminOrders() {
 
   const fetchOrders = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/orders/all");
+      const res = await fetch("https://harvesthub-backend-xh5u.onrender.com/api/orders/all");
       const data = await res.json();
       setOrders(data);
     } catch (err) {
@@ -22,7 +22,7 @@ function AdminOrders() {
 
   const handleStatusUpdate = async (id, newStatus) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/orders/${id}/status`, {
+      const res = await fetch(`https://harvesthub-backend-xh5u.onrender.com/api/orders/${id}/status`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: newStatus }),

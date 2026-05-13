@@ -272,7 +272,7 @@ npm start
 **7. Access the App**
 ```
 🌐 Frontend:  http://localhost:3000
-⚙️ Backend:   http://localhost:5000
+⚙️ Backend:   https://harvesthub-backend-xh5u.onrender.com
 
 👤 User:  Register at /register
 🔐 Admin: admin@farmer.com / admin123

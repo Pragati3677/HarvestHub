@@ -28,7 +28,7 @@ function OrderHistory() {
 
         // Try by phone first
         if (userPhone) {
-          const res = await fetch(`http://localhost:5000/api/orders/my-orders/${userPhone}`);
+          const res = await fetch(`https://harvesthub-backend-xh5u.onrender.com/api/orders/my-orders/${userPhone}`);
           const data = await res.json();
           if (data && data.length > 0) {
             foundOrders = data;
@@ -37,7 +37,7 @@ function OrderHistory() {
 
         // If no orders found by phone, try by name
         if (foundOrders.length === 0 && userName) {
-          const res = await fetch(`http://localhost:5000/api/orders/by-name/${encodeURIComponent(userName)}`);
+          const res = await fetch(`https://harvesthub-backend-xh5u.onrender.com/api/orders/by-name/${encodeURIComponent(userName)}`);
           const data = await res.json();
           foundOrders = data || [];
         }

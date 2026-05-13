@@ -18,7 +18,7 @@ function Feedback() {
   }
 
   try {
-    const response = await fetch("http://localhost:5000/api/feedback", {
+    const response = await fetch("https://harvesthub-backend-xh5u.onrender.com/api/feedback", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

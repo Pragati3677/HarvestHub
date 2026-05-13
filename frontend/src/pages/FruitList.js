@@ -39,7 +39,7 @@ function FruitList() {
 
   // Fetch fruits from MongoDB
   useEffect(() => {
-    fetch("http://localhost:5000/api/fruits/all")
+    fetch("https://harvesthub-backend-xh5u.onrender.com/api/fruits/all")
       .then((res) => res.json())
       .then((data) => { setFruits(data); setLoading(false); })
       .catch(() => { alert("❌ Cannot connect to server."); setLoading(false); });
