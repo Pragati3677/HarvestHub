@@ -13,7 +13,7 @@
 <img width="1910" height="967" alt="image" src="https://github.com/user-attachments/assets/e17ef674-8460-4484-83a5-607a724a7453" />
 
 ### 🛒 Cart
-(<img width="1912" height="969" alt="image" src="https://github.com/user-attachments/assets/14b897c3-7751-4d76-bf71-a960b50a4050" />)
+<img width="1912" height="969" alt="image" src="https://github.com/user-attachments/assets/14b897c3-7751-4d76-bf71-a960b50a4050" />
 
 ### 💳 Checkout & Payment
 <img width="1911" height="963" alt="image" src="https://github.com/user-attachments/assets/2c1ccb95-9b66-49d3-9738-f4686b62c79f" />
