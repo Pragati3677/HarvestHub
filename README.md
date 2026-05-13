@@ -4,9 +4,7 @@
 
 ### 🍎 Fresh Fruits. Direct from Farm. Delivered to Your Door.
 
-## [🌐 Live Demo](https://harvest-hub-umber.vercel.app)
-
-## [💻 GitHub Repository](https://github.com/Pragati3677/HarvestHub)
+## [Live Demo](https://harvest-hub-umber.vercel.app)|## [GitHub Repository](https://github.com/Pragati3677/HarvestHub)
 
 </div>
 
