@@ -58,6 +58,7 @@ HarvestHub simplifies fruit purchasing, enhances farmer visibility, and delivers
 
   ### 🌐 HarvestHub System Architecture
   <img width="611" height="470" alt="Harvesthub 1 drawio" src="https://github.com/user-attachments/assets/cc0b6d27-4694-4223-a4b3-45b37b9ef5ef" />
+
 ---
   ### 🛒 Customer Flow Diagram
    <img width="427" height="762" alt="Harvesthub 2 drawio" src="https://github.com/user-attachments/assets/2f1f3fc1-8d3b-4212-bc47-6912500f81c0" />
@@ -66,6 +67,7 @@ HarvestHub simplifies fruit purchasing, enhances farmer visibility, and delivers
   ### 📊 Admin Management Flow
 <img width="571" height="412" alt="Harvesthub 3 drawio" src="https://github.com/user-attachments/assets/4c4122cc-74e1-4ea2-adee-4c3797b24c37" />
 
+---
 </div>
 
 ## 📸 Website Snapshots
