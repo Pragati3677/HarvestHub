@@ -291,7 +291,7 @@ npm start
 
 **Pragati Shendage** 🌱
 
-`Full Stack Developer` `MERN Stack` `Maharashtra`
+`Full Stack Developer`
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Pragati3677)
 
@@ -299,8 +299,7 @@ npm start
 
 <div align="center">
 
-💚 Made by Pragati  
-🌾 Empowering Farmers Through Technology 🚜
+🌾 Empowering Farmers Through Technology 🚜💚
 
 **🍎 Fresh • 🌿 Organic • 🚚 Direct from Farm**
 
