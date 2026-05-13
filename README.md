@@ -7,29 +7,29 @@
 [![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-HarvestHub-2e7d32?style=for-the-badge)](https://github.com/Pragati3677/HarvestHub)
 
 ### 🏠 Home Page
-![React](<img width="1600" height="807" alt="image" src="https://github.com/user-attachments/assets/51b5f838-0616-469c-b965-fcddef3a8d2b" />)
+(<img width="1600" height="807" alt="image" src="https://github.com/user-attachments/assets/51b5f838-0616-469c-b965-fcddef3a8d2b" />)
 
 ### 🍎 Fruits Page 
-![Node.js](<img width="1910" height="967" alt="image" src="https://github.com/user-attachments/assets/e17ef674-8460-4484-83a5-607a724a7453" />)
+(<img width="1910" height="967" alt="image" src="https://github.com/user-attachments/assets/e17ef674-8460-4484-83a5-607a724a7453" />)
 
 ### 🛒 Cart
-![MongoDB](<img width="1912" height="969" alt="image" src="https://github.com/user-attachments/assets/14b897c3-7751-4d76-bf71-a960b50a4050" />)
+(<img width="1912" height="969" alt="image" src="https://github.com/user-attachments/assets/14b897c3-7751-4d76-bf71-a960b50a4050" />)
 
 ### 💳 Checkout & Payment
-![Express](<img width="1911" height="963" alt="image" src="https://github.com/user-attachments/assets/2c1ccb95-9b66-49d3-9738-f4686b62c79f" />)
-![Razorpay](<img width="1904" height="968" alt="image" src="https://github.com/user-attachments/assets/8f79c0be-fde7-4022-b415-f94106103918" />)
+(<img width="1911" height="963" alt="image" src="https://github.com/user-attachments/assets/2c1ccb95-9b66-49d3-9738-f4686b62c79f" />)
+(<img width="1904" height="968" alt="image" src="https://github.com/user-attachments/assets/8f79c0be-fde7-4022-b415-f94106103918" />)
 
 ### 📊 Admin Dashboard
-![Chart.js](<img width="1919" height="975" alt="image" src="https://github.com/user-attachments/assets/08942686-d198-4375-930e-34c96b3c73e4" />)
+(<img width="1919" height="975" alt="image" src="https://github.com/user-attachments/assets/08942686-d198-4375-930e-34c96b3c73e4" />)
 
 ### 📋 Admin Orders
-![Orders](<img width="1907" height="962" alt="image" src="https://github.com/user-attachments/assets/98847c94-241e-4fa1-8edf-805f664b21b7" />)
+(<img width="1907" height="962" alt="image" src="https://github.com/user-attachments/assets/98847c94-241e-4fa1-8edf-805f664b21b7" />)
 
 ### 📜 Customer Order History
-![Orders](<img width="1906" height="959" alt="image" src="https://github.com/user-attachments/assets/f79a6516-7e7a-4474-b6ec-441928fe831e" />)
+(<img width="1906" height="959" alt="image" src="https://github.com/user-attachments/assets/f79a6516-7e7a-4474-b6ec-441928fe831e" />)
 
 ### 🎉 Order Placed Successfully
-![Orders](<img width="1919" height="964" alt="image" src="https://github.com/user-attachments/assets/e344f428-f72c-4d68-85c0-53f93eb0b824" />)
+(<img width="1919" height="964" alt="image" src="https://github.com/user-attachments/assets/e344f428-f72c-4d68-85c0-53f93eb0b824" />)
 
 
 **HarvestHub is a full-stack MERN e-commerce platform that eliminates middlemen by connecting customers directly with a Maharashtra-based fruit farm — enabling fresh, organic fruit delivery right to their doorstep.**
