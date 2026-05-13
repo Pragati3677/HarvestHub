@@ -205,6 +205,7 @@
 
 .fruit-float--main {
   width: 280px; height: 340px;
+  left: 165px;
   z-index: 3;
   animation: floatImg 5s ease-in-out infinite;
 }
