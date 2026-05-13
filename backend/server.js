@@ -16,8 +16,6 @@ const orderRoutes = require("./routes/orderRoutes");
 const app = express();
 
 // Middleware
-const cors = require("cors");
-
 app.use(cors({
   origin: "https://harvest-hub-umber.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
