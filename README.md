@@ -8,6 +8,8 @@
 
 </div>
 
+---
+
 🚩 Problem Statement
 
 To design and implement a MERN-based Fruit Ordering System that connects farmers directly with customers and automates:
