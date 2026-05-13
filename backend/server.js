@@ -16,7 +16,13 @@ const orderRoutes = require("./routes/orderRoutes");
 const app = express();
 
 // Middleware
-app.use(cors());
+const cors = require("cors");
+
+app.use(cors({
+  origin: "https://harvest-hub-umber.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 
 // Debug Razorpay Keys
