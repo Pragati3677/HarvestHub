@@ -69,7 +69,7 @@ function Checkout() {
 
       // Step 2: Open Razorpay with or without orderId
       const options = {
-        key: process.env.REACT_APP_RAZORPAY_KEY_ID,
+        key: "rzp_test_SntFVtkFUA1w7f",
         amount: data.amount,
         currency: "INR",
         name: "🌾 HarvestHub",
