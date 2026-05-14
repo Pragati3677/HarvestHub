@@ -28,7 +28,7 @@ function FruitList() {
   const [maxPrice, setMaxPrice] = useState(1000);
   const navigate = useNavigate();
 
-  // ── 🔐 PROTECT ROUTE ──
+  // ── Protect Route ──
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn");
     if (!isLoggedIn) {
@@ -37,13 +37,23 @@ function FruitList() {
     }
   }, [navigate]);
 
-  // Fetch fruits from MongoDB
+  // ── Fetch Fruits ──
   useEffect(() => {
-    fetch("https://harvesthub-backend-xh5u.onrender.com/api/fruits/all")
+    fetch("http://localhost:5000/api/fruits/all")
       .then((res) => res.json())
       .then((data) => { setFruits(data); setLoading(false); })
       .catch(() => { alert("❌ Cannot connect to server."); setLoading(false); });
   }, []);
+
+  // ── Prevent body scroll when cart is open on mobile ──
+  useEffect(() => {
+    if (cartOpen && window.innerWidth <= 768) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => { document.body.style.overflow = "auto"; };
+  }, [cartOpen]);
 
   const getImageSrc = (fruit) => {
     if (fruit.imageUrl && fruit.imageUrl.startsWith("http")) return fruit.imageUrl;
@@ -83,7 +93,7 @@ function FruitList() {
     navigate("/checkout", { state: { cartItems, totalPrice } });
   };
 
-  // Filter & Sort
+  // ── Filter & Sort ──
   const filteredFruits = fruits
     .filter((f) => f.name.toLowerCase().includes(search.toLowerCase()))
     .filter((f) => f.price <= maxPrice)
@@ -107,7 +117,7 @@ function FruitList() {
   return (
     <div className="fruit-page">
 
-      {/* TOP BAR */}
+      {/* ── TOP BAR ── */}
       <div className="fruit-topbar">
         <div className="fruit-topbar__left">
           <h1>🍎 Fresh Fruits</h1>
@@ -117,14 +127,14 @@ function FruitList() {
           <span className="welcome-user">
             👋 {localStorage.getItem("userName") || "Customer"}
           </span>
-          <button className="cart-btn" onClick={() => setCartOpen(!cartOpen)}>
+          <button className="cart-btn" onClick={() => setCartOpen(true)}>
             🛒 Cart
             {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
           </button>
         </div>
       </div>
 
-      {/* SEARCH & FILTER BAR */}
+      {/* ── SEARCH & FILTER BAR ── */}
       <div className="filter-bar">
         <div className="search-box">
           <span className="search-icon">🔍</span>
@@ -160,15 +170,15 @@ function FruitList() {
         </button>
       </div>
 
+      {/* ── MAIN ── */}
       <div className="fruit-main">
 
-        {/* FRUIT GRID */}
-        <div className={`fruit-grid ${cartOpen ? "fruit-grid--shrink" : ""}`}>
+        {/* ── FRUIT GRID ── */}
+        <div className="fruit-grid">
           {filteredFruits.length === 0 ? (
             <div className="no-fruits">
               <p>😢</p>
               <p>No fruits found!</p>
-              <p>{search ? `No results for "${search}"` : "Try adjusting your filters"}</p>
               <button onClick={() => { setSearch(""); setSortBy("default"); setMaxPrice(1000); }}>
                 Clear Filters
               </button>
@@ -208,59 +218,66 @@ function FruitList() {
           )}
         </div>
 
-        {/* CART SIDEBAR */}
-        {cartOpen && (
-          <div className="cart-sidebar">
-            <div className="cart-sidebar__header">
-              <h2>🛒 Your Cart</h2>
-              <button className="close-cart" onClick={() => setCartOpen(false)}>✕</button>
-            </div>
-            {cartItems.length === 0 ? (
-              <div className="cart-empty">
-                <p>🛒</p>
-                <p>Your cart is empty</p>
-                <small>Add some fresh fruits!</small>
-              </div>
-            ) : (
-              <>
-                <div className="cart-items">
-                  {cartItems.map((item) => (
-                    <div className="cart-item" key={item._id}>
-                      <div className="cart-item__info">
-                        <strong>{item.name}</strong>
-                        <span>₹{item.price} × {item.qty} kg</span>
-                      </div>
-                      <div className="cart-item__right">
-                        <span className="cart-item__total">₹{item.price * item.qty}</span>
-                        <div className="qty-controls qty-controls--sm">
-                          <button onClick={() => removeFromCart(item._id)}>−</button>
-                          <span>{item.qty}</span>
-                          <button onClick={() => addToCart(item)}>+</button>
-                        </div>
-                        <button className="remove-btn" onClick={() => deleteFromCart(item._id)}>🗑️</button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="cart-summary">
-                  <div className="cart-summary__row">
-                    <span>Items ({totalItems})</span><span>₹{totalPrice}</span>
-                  </div>
-                  <div className="cart-summary__row">
-                    <span>Delivery</span><span className="free">FREE 🚚</span>
-                  </div>
-                  <div className="cart-summary__row cart-summary__total">
-                    <strong>Total</strong><strong>₹{totalPrice}</strong>
-                  </div>
-                  <button className="checkout-btn" onClick={handleCheckout}>
-                    Proceed to Checkout →
-                  </button>
-                </div>
-              </>
-            )}
+      </div>
+
+      {/* ── CART OVERLAY (Mobile) ── */}
+      {cartOpen && (
+        <div className="cart-overlay" onClick={() => setCartOpen(false)} />
+      )}
+
+      {/* ── CART DRAWER ── */}
+      <div className={`cart-drawer ${cartOpen ? "cart-drawer--open" : ""}`}>
+        <div className="cart-sidebar__header">
+          <h2>🛒 Your Cart</h2>
+          <button className="close-cart" onClick={() => setCartOpen(false)}>✕</button>
+        </div>
+
+        {cartItems.length === 0 ? (
+          <div className="cart-empty">
+            <p>🛒</p>
+            <p>Your cart is empty</p>
+            <small>Add some fresh fruits!</small>
           </div>
+        ) : (
+          <>
+            <div className="cart-items">
+              {cartItems.map((item) => (
+                <div className="cart-item" key={item._id}>
+                  <div className="cart-item__info">
+                    <strong>{item.name}</strong>
+                    <span>₹{item.price} × {item.qty} kg</span>
+                  </div>
+                  <div className="cart-item__right">
+                    <span className="cart-item__total">₹{item.price * item.qty}</span>
+                    <div className="qty-controls qty-controls--sm">
+                      <button onClick={() => removeFromCart(item._id)}>−</button>
+                      <span>{item.qty}</span>
+                      <button onClick={() => addToCart(item)}>+</button>
+                    </div>
+                    <button className="remove-btn" onClick={() => deleteFromCart(item._id)}>🗑️</button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="cart-summary">
+              <div className="cart-summary__row">
+                <span>Items ({totalItems})</span><span>₹{totalPrice}</span>
+              </div>
+              <div className="cart-summary__row">
+                <span>Delivery</span><span className="free">FREE 🚚</span>
+              </div>
+              <div className="cart-summary__row cart-summary__total">
+                <strong>Total</strong><strong>₹{totalPrice}</strong>
+              </div>
+              <button className="checkout-btn" onClick={handleCheckout}>
+                Proceed to Checkout →
+              </button>
+            </div>
+          </>
         )}
       </div>
+
     </div>
   );
 }
