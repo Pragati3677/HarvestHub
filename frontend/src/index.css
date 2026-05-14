@@ -25,3 +25,4 @@ a {
   align-items: center;
   height: 100vh;
 }
+@import './responsive.css';
