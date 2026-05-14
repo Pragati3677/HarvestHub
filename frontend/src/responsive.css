@@ -1,0 +1,419 @@
+/* ══════════════════════════════════════════
+   HARVESTHUB — MOBILE RESPONSIVE CSS
+   Add this at the bottom of App.css
+   OR import in index.css
+   ══════════════════════════════════════════ */
+
+/* ── TABLET (max 1024px) ── */
+@media (max-width: 1024px) {
+
+  /* Navbar */
+  .navbar {
+    padding: 0 16px;
+    height: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-links {
+    gap: 2px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links li a {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  /* Home Hero */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 60px 30px;
+    text-align: center;
+    min-height: auto;
+  }
+
+  .hero__content { max-width: 100%; }
+  .hero__actions { justify-content: center; }
+  .hero__stats { justify-content: center; }
+  .hero__images { display: none; }
+  .hero__title { font-size: 40px; }
+
+  /* Features */
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Testimonials */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* Footer */
+  .footer-content { grid-template-columns: 1fr 1fr; }
+
+  /* Checkout */
+  .checkout-wrapper { grid-template-columns: 1fr; }
+  .order-summary-panel { position: static; }
+
+  /* Admin Dashboard */
+  .dash-stats { grid-template-columns: repeat(3, 1fr); }
+  .charts-row { grid-template-columns: 1fr; }
+  .dash-header { flex-direction: column; }
+  .dash-header-actions { width: 100%; justify-content: flex-start; }
+
+  /* About */
+  .about-cards { grid-template-columns: repeat(2, 1fr); }
+
+  /* Order Body Grid */
+  .order-body-grid { grid-template-columns: 1fr; }
+}
+
+/* ── MOBILE (max 768px) ── */
+@media (max-width: 768px) {
+
+  /* ── Navbar ── */
+  .navbar {
+    padding: 10px 16px;
+    gap: 6px;
+  }
+
+  .navbar-logo { font-size: 18px; }
+
+  .nav-links {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 2px;
+  }
+
+  .nav-links li a {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .nav-username {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .nav-logout-btn {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  /* ── Home Page ── */
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .hero__title { font-size: 32px; }
+  .hero__subtitle { font-size: 15px; }
+
+  .hero__badge { font-size: 12px; padding: 6px 14px; }
+
+  .hero__stats { gap: 12px; }
+  .hero__stats .stat strong { font-size: 20px; }
+
+  .btn { padding: 12px 20px; font-size: 14px; }
+
+  .marquee-item { font-size: 13px; padding: 0 20px; }
+
+  .features-section,
+  .testimonials-section,
+  .cta-section { padding: 40px 16px; }
+
+  .section-header h2 { font-size: 26px; }
+
+  .features-grid { grid-template-columns: 1fr; }
+
+  .cta-section { flex-direction: column; align-items: flex-start; }
+  .cta-content h2 { font-size: 24px; }
+
+  .cta-emoji-grid { grid-template-columns: repeat(4, 1fr); }
+  .cta-emoji { font-size: 28px; padding: 12px; }
+
+  .testimonials-grid { grid-template-columns: 1fr; }
+
+  .footer-content { grid-template-columns: 1fr; gap: 24px; }
+  .home-footer { padding: 32px 20px 0; }
+
+  /* ── Login / Register ── */
+  .login-container,
+  .register-container {
+    margin: 30px 16px;
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+
+  .login-container h1,
+  .register-container h1 { font-size: 26px; }
+
+  /* ── Admin Login ── */
+  .admin-login-page { padding: 24px 16px; }
+
+  .admin-login-container {
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+
+  .admin-login-icon { font-size: 44px; }
+  .admin-login-container h2 { font-size: 22px; }
+
+  /* ── Fruits Page ── */
+  .fruit-topbar { padding: 14px 16px; }
+  .fruit-topbar__left h1 { font-size: 20px; }
+
+  .filter-bar {
+    padding: 12px 16px;
+    gap: 10px;
+  }
+
+  .search-box { min-width: 100%; }
+  .price-slider { width: 100%; }
+
+  .fruit-main {
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .fruit-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .fruit-grid--shrink { grid-template-columns: 1fr; }
+
+  .fruit-card__img-wrap { height: 150px; }
+  .fruit-card__body { padding: 12px; }
+  .fruit-card__body h3 { font-size: 15px; }
+  .fruit-price { font-size: 17px; }
+
+  .cart-sidebar {
+    width: 100%;
+    min-width: unset;
+    margin-left: 0;
+    position: static;
+    border-radius: 16px;
+    margin-top: 16px;
+  }
+
+  .cart-btn { padding: 10px 16px; font-size: 13px; }
+
+  /* ── Checkout ── */
+  .checkout-page { padding: 20px 16px; }
+
+  .checkout-wrapper {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .order-summary-panel,
+  .checkout-form-panel {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .order-summary-panel h2,
+  .checkout-form-panel h2 { font-size: 18px; }
+
+  .order-item { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .order-item__total { align-self: flex-end; }
+
+  .total-row--grand { font-size: 16px; }
+
+  .payment-opt { padding: 10px 12px; gap: 8px; }
+  .payment-opt div strong { font-size: 13px; }
+  .payment-opt div small { font-size: 11px; }
+
+  .place-order-btn { padding: 14px; font-size: 15px; }
+
+  /* Success Screen */
+  .order-success {
+    padding: 32px 20px;
+    border-radius: 16px;
+  }
+
+  .success-anim { font-size: 52px; }
+  .order-success h2 { font-size: 22px; }
+  .success-row { flex-direction: column; gap: 2px; }
+  .success-row strong { text-align: left; max-width: 100%; }
+
+  /* ── Order History ── */
+  .history-page { padding: 20px 16px; }
+
+  .history-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .history-header h2 { font-size: 22px; }
+
+  .order-card__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 14px 16px;
+  }
+
+  .order-card__left { flex-direction: column; gap: 6px; }
+  .order-card__right { flex-wrap: wrap; gap: 8px; }
+
+  .order-card__body { padding: 16px; }
+  .order-body-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  .order-item-row { flex-direction: column; gap: 2px; }
+
+  /* ── Admin Dashboard ── */
+  .admin-dashboard-page { padding: 16px; }
+
+  .dash-header { flex-direction: column; gap: 12px; }
+  .dash-header h1 { font-size: 22px; }
+
+  .dash-header-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    width: 100%;
+  }
+
+  .dash-nav-btn {
+    font-size: 11px;
+    padding: 8px 6px;
+    text-align: center;
+  }
+
+  .dash-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .dash-stat-card { padding: 14px 12px; gap: 10px; }
+  .dash-stat-icon { font-size: 24px; }
+  .dash-stat-card strong { font-size: 18px; }
+
+  .charts-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .chart-card { padding: 16px; }
+  .chart-card h3 { font-size: 14px; margin-bottom: 14px; }
+
+  /* ── Admin Orders ── */
+  .orders-page { padding: 16px; }
+
+  .orders-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .orders-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .filter-tabs { flex-wrap: wrap; gap: 6px; }
+  .filter-tab { font-size: 12px; padding: 7px 12px; }
+
+  .order-card__header { padding: 12px; }
+  .order-details-grid { grid-template-columns: 1fr; }
+
+  /* ── Add/Edit Product ── */
+  .add-product-container,
+  .edit-page { padding: 20px 16px; }
+
+  .edit-container,
+  .add-product-container {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  /* ── About Page ── */
+  .about-container { padding: 0 16px; margin: 24px auto; }
+  .about-hero { padding: 32px 20px; border-radius: 16px; }
+  .about-hero h1 { font-size: 26px; }
+  .about-hero p { font-size: 15px; }
+  .about-cards { grid-template-columns: 1fr; gap: 12px; }
+
+  /* ── Contact Page ── */
+  .contact-page { padding: 20px 16px; }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    border-radius: 16px;
+  }
+
+  .contact-info-panel { padding: 28px 20px; }
+  .contact-info-panel h1 { font-size: 22px; }
+  .contact-form-panel { padding: 28px 20px; }
+
+  /* ── Feedback Page ── */
+  .feedback-page { padding: 20px 16px; }
+
+  .feedback-card {
+    padding: 28px 20px;
+    border-radius: 16px;
+  }
+
+  .feedback-header h1 { font-size: 22px; }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  .star { font-size: 28px; }
+
+  /* ── ViewProduct ── */
+  .view-product-container { padding: 16px; overflow-x: auto; }
+  .fruit-table { font-size: 13px; }
+  .fruit-table th, .fruit-table td { padding: 8px 10px; }
+}
+
+/* ── SMALL MOBILE (max 480px) ── */
+@media (max-width: 480px) {
+
+  /* Navbar */
+  .navbar-logo { font-size: 16px; }
+  .nav-links li a { font-size: 10px; padding: 3px 6px; }
+
+  /* Home */
+  .hero__title { font-size: 26px; }
+  .hero__actions { flex-direction: column; width: 100%; }
+  .hero__actions .btn { width: 100%; text-align: center; }
+
+  /* Fruits */
+  .fruit-grid { grid-template-columns: 1fr; }
+  .fruit-topbar { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .cart-btn { width: 100%; text-align: center; }
+
+  .filter-bar { flex-direction: column; }
+  .filter-group { width: 100%; }
+  .price-slider { width: 100%; }
+  .reset-btn { width: 100%; }
+
+  /* Checkout */
+  .razorpay-info { padding: 12px; }
+  .pay-methods-icons { gap: 6px; }
+  .pay-methods-icons span { font-size: 11px; padding: 3px 8px; }
+
+  /* Admin */
+  .dash-stats { grid-template-columns: 1fr; }
+  .dash-header-actions { grid-template-columns: repeat(2, 1fr); }
+  .orders-stats { grid-template-columns: 1fr; }
+
+  /* Login/Register */
+  .login-container, .register-container { margin: 16px; padding: 24px 16px; }
+
+  /* About */
+  .about-cards { grid-template-columns: 1fr; }
+
+  /* History */
+  .history-container { padding: 0; }
+  .order-meta { flex-direction: column; gap: 2px; }
+
+  /* Feedback */
+  .feedback-card { padding: 20px 16px; }
+  .feedback-success { padding: 32px 16px; }
+}
